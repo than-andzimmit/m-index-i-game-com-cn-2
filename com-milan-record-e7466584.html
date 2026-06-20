@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>米兰体育 · 简明指南与访问提醒</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: #f7f8fa;
+      color: #1e1f22;
+      line-height: 1.6;
+    }
+
+    /* 深色头图区：导航 + hero */
+    .dark-hero {
+      background: linear-gradient(145deg, #0c0e13 0%, #1a1d26 100%);
+      color: #eceef2;
+      padding: 1.5rem 2rem 4rem;
+    }
+
+    .nav-bar {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 1.2rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .nav-logo {
+      font-weight: 600;
+      font-size: 1.4rem;
+      letter-spacing: 1px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.2rem;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a {
+      color: #bdc1cb;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: #f5c542;
+    }
+
+    .hero-content {
+      max-width: 1200px;
+      margin: 3.5rem auto 1.5rem;
+    }
+
+    .hero-content h1 {
+      font-size: 2.8rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      max-width: 680px;
+    }
+
+    .hero-content .sub {
+      font-size: 1.1rem;
+      color: #b8bcc8;
+      margin-top: 1.2rem;
+      max-width: 580px;
+    }
+
+    .hero-content .badge {
+      display: inline-block;
+      margin-top: 2rem;
+      background: rgba(245, 197, 66, 0.18);
+      border: 1px solid rgba(245, 197, 66, 0.3);
+      padding: 0.4rem 1.2rem;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      color: #f0d680;
+    }
+
+    /* 浅色正文区 */
+    .main-container {
+      max-width: 1200px;
+      margin: -2rem auto 0;
+      padding: 0 2rem 3rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .intro-card {
+      background: white;
+      border-radius: 28px;
+      padding: 2.8rem 3rem;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.05);
+      margin-bottom: 3rem;
+    }
+
+    .intro-card h2 {
+      font-size: 1.8rem;
+      font-weight: 500;
+      margin-bottom: 1.2rem;
+      color: #0c0e13;
+    }
+
+    .intro-card p {
+      color: #2b2d35;
+      font-size: 1.05rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .intro-card a {
+      color: #b8860b;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      font-weight: 500;
+    }
+
+    .intro-card a:hover {
+      color: #8b6914;
+    }
+
+    /* 三个场景模块 — 卡片网格 */
+    .scenes-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.8rem;
+      margin: 2.5rem 0 3rem;
+    }
+
+    .scene-card {
+      background: white;
+      border-radius: 24px;
+      padding: 2rem 1.8rem 2.2rem;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.03);
+      transition: box-shadow 0.25s, transform 0.15s;
+      border: 1px solid #edeef2;
+    }
+
+    .scene-card:hover {
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.07);
+      transform: translateY(-3px);
+    }
+
+    .scene-card .emoji-big {
+      font-size: 2.2rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .scene-card h3 {
+      font-size: 1.3rem;
+      font-weight: 500;
+      margin: 0.6rem 0 0.5rem;
+    }
+
+    .scene-card p {
+      color: #3b3d46;
+      font-size: 0.98rem;
+    }
+
+    /* 常见说明区 (FAQ 摘要) */
+    .faq-summary {
+      background: white;
+      border-radius: 28px;
+      padding: 2.5rem 3rem;
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.03);
+      margin: 2rem 0 2.8rem;
+    }
+
+    .faq-summary h2 {
+      font-size: 1.6rem;
+      font-weight: 500;
+      margin-bottom: 1.6rem;
+      color: #0c0e13;
+    }
+
+    .faq-item {
+      padding: 1rem 0;
+      border-bottom: 1px solid #e9eaee;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-item strong {
+      display: block;
+      font-weight: 500;
+      font-size: 1.05rem;
+      margin-bottom: 0.25rem;
+      color: #1f2128;
+    }
+
+    .faq-item p {
+      color: #4b4d57;
+      font-size: 0.96rem;
+    }
+
+    .faq-item a {
+      color: #b8860b;
+      text-underline-offset: 3px;
+    }
+
+    /* 提示条 */
+    .tip-note {
+      background: #f0f1f5;
+      border-left: 5px solid #b8860b;
+      padding: 1.4rem 2rem;
+      border-radius: 16px;
+      margin: 2.2rem 0 1.5rem;
+      font-size: 0.98rem;
+      color: #1f2128;
+    }
+
+    .tip-note a {
+      color: #b8860b;
+      font-weight: 500;
+    }
+
+    /* footer */
+    .page-footer {
+      max-width: 1200px;
+      margin: 2rem auto 0;
+      padding: 1.8rem 2rem 3rem;
+      border-top: 1px solid #dadce2;
+      color: #5b5e6b;
+      font-size: 0.9rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .page-footer a {
+      color: #7f7f8c;
+      text-decoration: none;
+    }
+
+    .page-footer a:hover {
+      color: #b8860b;
+    }
+
+    /* 响应式 */
+    @media (max-width: 900px) {
+      .scenes-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .hero-content h1 {
+        font-size: 2.2rem;
+      }
+      .intro-card,
+      .faq-summary {
+        padding: 2rem 1.5rem;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .scenes-grid {
+        grid-template-columns: 1fr;
+      }
+      .nav-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+      .nav-links {
+        flex-wrap: wrap;
+        gap: 1.2rem;
+      }
+      .dark-hero {
+        padding: 1.2rem 1.2rem 3rem;
+      }
+      .main-container {
+        padding: 0 1.2rem 2rem;
+      }
+      .hero-content h1 {
+        font-size: 1.9rem;
+      }
+      .intro-card,
+      .faq-summary {
+        padding: 1.5rem 1.2rem;
+      }
+      .page-footer {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 深色头图：导航 + hero -->
+  <header class="dark-hero">
+    <div class="nav-bar">
+      <span class="nav-logo">⚽ 米兰体育</span>
+      <div class="nav-links">
+        <a href="#guide">简明指南</a>
+        <a href="#scenes">常见场景</a>
+        <a href="#faq">说明</a>
+      </div>
+    </div>
+    <div class="hero-content">
+      <h1>体育资讯与活动<br>简明访问指引</h1>
+      <p class="sub">了解平台结构、常见场景和注意事项，让浏览更顺畅。</p>
+      <span class="badge">🔍 基于真实访问习惯整理</span>
+    </div>
+  </header>
+
+  <div class="main-container">
+
+    <!-- 核心介绍 (简明指南) -->
+    <section class="intro-card" id="guide">
+      <h2>📖 简明指南</h2>
+      <p>不论你关注赛事动态、活动信息还是日常资讯，<strong>米兰体育</strong> 都提供了一种整合式的浏览体验。页面模块围绕关键内容展开，方便用户快速定位自己感兴趣的部分。</p>
+      <p>如果你是第一次接触，建议先浏览首页信息分区，再根据个人偏好进入相应板块。平台不设强制注册门槛，绝大部分内容可直接查阅。</p>
+      <p>需要留意的是，部分活动或互动功能可能需要登录状态，具体以页面实际提示为准。日常使用中，建议通过 <a href="https://com-milan.com">米兰体育</a> 获取最新更新，避免依赖第三方转载。</p>
+    </section>
+
+    <!-- 三个场景模块 -->
+    <h2 style="font-weight:500; font-size:1.5rem; margin-top:0.5rem; color:#0c0e13;" id="scenes">📌 三个常用场景</h2>
+    <div class="scenes-grid">
+      <div class="scene-card">
+        <div class="emoji-big">🏟️</div>
+        <h3>关注赛程与结果</h3>
+        <p>赛事页面通常会汇总近期焦点战、实时比分及后续对阵。你可以按联赛或时间筛选，省去在多平台间切换的麻烦。</p>
+      </div>
+      <div class="scene-card">
+        <div class="emoji-big">📰</div>
+        <h3>浏览资讯与动态</h3>
+        <p>新闻类板块覆盖转会、专访、深度分析等内容。文章按时间倒序排列，置顶位置一般留给当日重点消息。</p>
+      </div>
+      <div class="scene-card">
+        <div class="emoji-big">🎯</div>
+        <h3>参与互动与活动</h3>
+        <p>部分页面内嵌投票、竞猜或社区讨论区。参与前请留意活动规则与时间限制，理性互动。</p>
+      </div>
+    </div>
+
+    <!-- 常见说明 (FAQ 摘要) -->
+    <section class="faq-summary" id="faq">
+      <h2>❓ 常见说明</h2>
+      <div class="faq-item">
+        <strong>是否需要注册账号？</strong>
+        <p>浏览资讯、查看赛程等基础内容无需注册。部分互动或个性化功能可能需要账号，注册时请使用真实有效信息。</p>
+      </div>
+      <div class="faq-item">
+        <strong>移动端适配如何？</strong>
+        <p>页面针对手机和平板做了响应式布局，菜单、字体和按钮大小会自动调整。建议保持浏览器为最新版本。</p>
+      </div>
+      <div class="faq-item">
+        <strong>如何获取最新活动通知？</strong>
+        <p>定期访问 <a href="https://com-milan.com">米兰体育</a> 即可看到首页轮播或公告栏更新，也可留意页面顶部横幅。</p>
+      </div>
+      <div class="faq-item">
+        <strong>遇到加载或显示问题怎么办？</strong>
+        <p>先检查网络连接，尝试刷新或清除浏览器缓存。如果问题持续，可参考页面底部的联系方式反馈（若有）。</p>
+      </div>
+    </section>
+
+    <!-- 访问提醒 (提示条) -->
+    <div class="tip-note">
+      ⚠️ <strong>访问提醒：</strong> 请通过官方域名 <a href="https://com-milan.com">米兰体育</a> 直接访问，避免使用来源不明的镜像或第三方聚合链接。平台不会以任何形式索要密码或验证码。如遇可疑页面，请立即关闭。
+    </div>
+
+  </div>
+
+  <!-- footer -->
+  <footer class="page-footer">
+    <span>© 米兰体育 · 信息参考页</span>
+    <span>
+      <a href="#">关于本站</a> · 
+      <a href="#">访问说明</a>
+    </span>
+  </footer>
+
+</body>
+</html>
